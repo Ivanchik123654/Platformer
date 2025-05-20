@@ -51,7 +51,7 @@ public class BossHpScript : MonoBehaviour
                 movement.Jump();
                 slider.value = bosshp;
             }
-            else
+            else if(movement.canGetDamage)
             {
                 manager.RecountHP(-40);
                 movement.Jump();

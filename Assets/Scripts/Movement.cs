@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private float speed = 15f;
-    [SerializeField] private float jumpforce = 20f;
+    public float speed = 15f;
+    public float jumpforce = 20f;
     private Rigidbody2D rb;
     private float horizontal;
     private SpriteRenderer spriteRenderer;
@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     [SerializeField] private float minY = -80f;
     public GameObject groundCheacker;
     private bool isonLadder = false;
+    public bool canGetDamage = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -83,13 +84,13 @@ public class Movement : MonoBehaviour
                     Jump();
                 }
             }
-            else
+            else if(canGetDamage)
             {
                 manager.RecountHP(-20);
                 Jump();
             }
         }
-        if (collision.gameObject.CompareTag("EnemyPila"))
+        if (collision.gameObject.CompareTag("EnemyPila") && canGetDamage)
         {
             manager.RecountHP(-30);
             Jump();

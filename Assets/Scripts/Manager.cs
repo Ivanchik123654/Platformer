@@ -49,4 +49,5 @@ public class Manager : MonoBehaviour
         dimond += value;
         dimondtxt.text = dimond.ToString();
     }
+
 }
