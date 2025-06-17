@@ -10,8 +10,8 @@ public class BustScript : MonoBehaviour
     private float waitBust = 20f;
     private float normalSpeed;
     private float normalJumpForce;
-    private float bustSpeed = 30f;
-    private float bustJumpForce = 30f;
+    private float bustSpeed = 4f;
+    private float bustJumpForce = 5f;
     public TextMeshProUGUI bustText;
     void Start()
     {
@@ -24,8 +24,8 @@ public class BustScript : MonoBehaviour
     {
         if(manager.dimond > 0)
         {
-            manager.dimond--;
-            int rnd = Random.Range(1, 3);
+            manager.DimondRecount(-1);
+            int rnd = Random.Range(1, 4);
             if (rnd == 1)
             {
                 SpeedUp();
@@ -38,7 +38,7 @@ public class BustScript : MonoBehaviour
             }
             else if(rnd == 3)
             {
-                movement.canGetDamage = false;
+                NoDamage();
                 bustText.text = "Bust: Block damage".ToString();
             }
         }
@@ -52,6 +52,11 @@ public class BustScript : MonoBehaviour
     public void JumpUp()
     {
         movement.jumpforce = bustJumpForce;
+        StartCoroutine(BustTime());
+    }
+    public void NoDamage()
+    {
+        movement.canGetDamage = false;
         StartCoroutine(BustTime());
     }
     IEnumerator BustTime()

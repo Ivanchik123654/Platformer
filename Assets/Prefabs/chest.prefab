@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8041590970278391475}
   - component: {fileID: 7934182659355707742}
   - component: {fileID: 6127197257415137877}
+  - component: {fileID: 6590877794140170057}
   m_Layer: 0
   m_Name: chest
   m_TagString: Chest
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467271272458809101}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.63, y: -1.35, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -130,3 +131,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18, y: 0.18}
   m_EdgeRadius: 0
+--- !u!114 &6590877794140170057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467271272458809101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b21ad546c51ecf49b95778165c45484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  prizesPrefabs:
+  - {fileID: 6549907739110773764, guid: 4992f5bde5e4bf94d9586e1b59aad23f, type: 3}
+  - {fileID: 1865584810117810181, guid: 99f926ef55c86884f9608ccb517e81bb, type: 3}
+  - {fileID: 6364374454542687541, guid: 2d540e24f035dd34090250e3e57c7de0, type: 3}

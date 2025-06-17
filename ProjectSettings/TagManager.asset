@@ -16,6 +16,10 @@ TagManager:
   - ladder
   - Platform
   - Dimond
+  - BuyBttnKey
+  - BuyBttnHeart
+  - BuyBttnChest
+  - BuyBttnDimond
   layers:
   - Default
   - TransparentFX

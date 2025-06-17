@@ -20,9 +20,6 @@ public class PlatformScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S) && !isDropping)
         {
-            //cldr.enabled = false;
-            //effector.rotationalOffset = 180f;
-            //Invoke("ResetEffector", 1f);
             StartCoroutine(DropDownPlatform());
         }
     }

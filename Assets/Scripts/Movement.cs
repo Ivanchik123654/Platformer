@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 15f;
-    public float jumpforce = 20f;
+    public float speed = 2f;
+    public float jumpforce = 3f;
     private Rigidbody2D rb;
     private float horizontal;
     private SpriteRenderer spriteRenderer;
@@ -17,11 +17,14 @@ public class Movement : MonoBehaviour
     public GameObject groundCheacker;
     private bool isonLadder = false;
     public bool canGetDamage = true;
+    private TrailRenderer trailRenderer;  
+   
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        trailRenderer = GetComponent<TrailRenderer>();
     }
 
     void Update()
@@ -45,6 +48,14 @@ public class Movement : MonoBehaviour
         if (OutOfBounds() == true)
         {
             manager.ResetLVL();
+        }
+        if (isGrounded)
+        {
+            trailRenderer.emitting = false;
+        }
+        else
+        {
+            trailRenderer.emitting = true;
         }
     }
     void Flip()
@@ -127,14 +138,6 @@ public class Movement : MonoBehaviour
         {
             manager.KeysRecount(1);
             Destroy(collision.gameObject);
-        }
-        if (collision.CompareTag("Chest"))
-        {
-            if(manager.keys > 0)
-            {
-                manager.KeysRecount(-1);
-                Destroy(collision.gameObject);
-            }
         }
         if (collision.CompareTag("Heart"))
         {

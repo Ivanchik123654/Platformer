@@ -14,6 +14,12 @@ public class Manager : MonoBehaviour
     public TextMeshProUGUI cointxt;
     public int dimond = 0;
     public TextMeshProUGUI dimondtxt;
+    public AudioSource audioSourceDimonds;
+    public AudioSource audioSourceCoins;
+    public AudioSource audioSourceHeal;
+    public AudioSource audioSourceDamage;
+    public AudioSource audioSourceKey;
+    public ParticleSystem liveeffect;
     void Start()
     {
 
@@ -29,6 +35,16 @@ public class Manager : MonoBehaviour
     {
         hp += deltahp;
         hptxt.text = hp.ToString();
+        if (deltahp > 0)
+        {
+            audioSourceHeal.Play();
+            liveeffect.Play();
+        }
+        else
+        {
+            audioSourceDamage.Play();
+        }
+        
     }
     public void ResetLVL()
     {
@@ -38,16 +54,19 @@ public class Manager : MonoBehaviour
     {
         keys += value;
         keystxt.text = keys.ToString();
+        audioSourceKey.Play();
     }
     public void CoinRecount(int value)
     {
         coin += value;
         cointxt.text = coin.ToString();
+        audioSourceCoins.Play();
     }
     public void DimondRecount(int value)
     {
         dimond += value;
         dimondtxt.text = dimond.ToString();
+        audioSourceDimonds.Play();
     }
 
 }
